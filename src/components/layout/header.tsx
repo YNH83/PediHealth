@@ -5,6 +5,7 @@ import { LocaleSwitcher } from "./locale-switcher";
 import { type Locale } from "@/lib/i18n/config";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Bell } from "lucide-react";
+import { toast } from "sonner";
 
 export function Header({
   userName = "User",
@@ -27,7 +28,10 @@ export function Header({
       <div className="flex items-center gap-3">
         <LocaleSwitcher current={locale} />
 
-        <button className="relative rounded-full bg-white p-2 text-muted-foreground shadow-sm transition-colors hover:text-foreground">
+        <button
+          onClick={() => toast.info("通知功能即將推出")}
+          className="relative rounded-full bg-white p-2 text-muted-foreground shadow-sm transition-colors hover:text-foreground"
+        >
           <Bell className="h-5 w-5" />
           <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-coral text-[10px] font-bold text-white">
             3

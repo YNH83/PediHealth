@@ -132,9 +132,13 @@ export function LoginForm({
               <div className="flex flex-col gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">密碼</Label>
-                  <a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
+                  <button
+                    type="button"
+                    onClick={() => toast.info("請聯繫您的醫療團隊重設密碼")}
+                    className="ml-auto text-sm underline-offset-4 hover:underline"
+                  >
                     忘記密碼？
-                  </a>
+                  </button>
                 </div>
                 <Input
                   id="password"

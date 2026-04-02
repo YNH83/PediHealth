@@ -26,6 +26,7 @@ import {
   getInjectionsForChild,
 } from "@/lib/mock/data";
 import Link from "next/link";
+import { toast } from "sonner";
 
 const diagnosisLabels: Record<string, { zh: string; color: string }> = {
   gh_deficiency: { zh: "生長激素缺乏", color: "bg-sky/20 text-sky" },
@@ -93,7 +94,10 @@ export default function ParentDashboard() {
               </div>
             </button>
           ))}
-          <button className="flex items-center gap-2 rounded-2xl border-2 border-dashed border-muted-foreground/30 px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+          <button
+            onClick={() => toast.info("此功能即將推出")}
+            className="flex items-center gap-2 rounded-2xl border-2 border-dashed border-muted-foreground/30 px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+          >
             <Plus className="h-5 w-5" />
             {t("addChild")}
           </button>

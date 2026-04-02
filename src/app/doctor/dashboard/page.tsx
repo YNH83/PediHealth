@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { getPatientSummaries, todaySchedule } from "@/lib/mock/doctor-data";
 import { BearNurse } from "@/components/illustrations/page-mascots";
 import { PageTransition } from "@/components/motion/page-transition";
+import { toast } from "sonner";
 
 const typeColor: Record<string, string> = {
   follow_up: "bg-sky/20 text-sky",
@@ -146,6 +147,7 @@ export default function DoctorDashboard() {
         <Button
           variant="outline"
           className="h-auto flex-1 flex-col gap-2 rounded-2xl border-2 border-border/50 bg-white py-5 shadow-sm hover:border-mint hover:bg-mint/10"
+          onClick={() => toast.info("此功能即將推出")}
         >
           <Plus className="h-6 w-6 text-mint" />
           <span className="text-xs font-medium">新增患者</span>
