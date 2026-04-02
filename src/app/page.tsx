@@ -1,65 +1,134 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { ForestScene } from "@/components/illustrations/forest-scene";
+import { Heart } from "lucide-react";
+
+export default function LandingPage() {
+  const [entered, setEntered] = useState(false);
+  const router = useRouter();
+
+  function handleEnter() {
+    setEntered(true);
+    setTimeout(() => router.push("/login"), 1200);
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#E0F2FE] via-[#FFF5F7] to-[#FFFBF5]">
+      {/* Background decorations */}
+      <div className="pointer-events-none absolute inset-0">
+        <motion.div
+          className="absolute left-10 top-20 h-3 w-3 rounded-full bg-primary/20"
+          animate={{ y: [0, -20, 0], opacity: [0.3, 0.8, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <motion.div
+          className="absolute right-20 top-40 h-2 w-2 rounded-full bg-sky/30"
+          animate={{ y: [0, -15, 0], opacity: [0.2, 0.7, 0.2] }}
+          transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+        />
+        <motion.div
+          className="absolute bottom-40 left-1/4 h-2.5 w-2.5 rounded-full bg-mint/30"
+          animate={{ y: [0, -18, 0], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 5, repeat: Infinity, delay: 2 }}
+        />
+        <motion.div
+          className="absolute bottom-60 right-1/4 h-2 w-2 rounded-full bg-lemon/40"
+          animate={{ y: [0, -12, 0], opacity: [0.4, 0.8, 0.4] }}
+          transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}
+        />
+      </div>
+
+      <AnimatePresence mode="wait">
+        {!entered ? (
+          <motion.div
+            key="forest"
+            className="flex flex-col items-center gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{
+              opacity: 0,
+              scale: 1.5,
+              rotateY: 90,
+              z: 500,
+              transition: { duration: 1, ease: "easeInOut" },
+            }}
+            transition={{ duration: 0.8 }}
+            style={{ perspective: 1200 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            {/* Logo */}
+            <motion.div
+              className="flex items-center gap-3"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 shadow-lg shadow-primary/10">
+                <Heart className="h-6 w-6 text-primary" fill="currentColor" />
+              </div>
+              <div>
+                <h1 className="font-heading text-3xl font-extrabold text-foreground">
+                  PediHealth
+                </h1>
+                <p className="text-xs tracking-wider text-muted-foreground">
+                  PEDIATRIC CARE PORTAL
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Forest Scene */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="rounded-[32px] shadow-2xl shadow-primary/10"
+              style={{ perspective: 1200 }}
+            >
+              <ForestScene onClick={handleEnter} />
+            </motion.div>
+
+            {/* Subtitle */}
+            <motion.p
+              className="max-w-sm text-center text-sm leading-relaxed text-muted-foreground"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              守護每一個孩子的成長旅程
+              <br />
+              <span className="text-xs">
+                Growth tracking, visit records & care management
+              </span>
+            </motion.p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="entering"
+            className="flex flex-col items-center gap-4"
+            initial={{ opacity: 0, scale: 0.8, rotateY: -90 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ perspective: 1200 }}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, ease: "linear" }}
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10"
+            >
+              <Heart className="h-8 w-8 text-primary" fill="currentColor" />
+            </motion.div>
+            <motion.p
+              className="text-lg font-bold text-primary"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1, repeat: Infinity }}
+            >
+              進入中...
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

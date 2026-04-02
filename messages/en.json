@@ -1,0 +1,169 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "back": "Back",
+    "loading": "Loading...",
+    "confirm": "Confirm",
+    "search": "Search",
+    "noData": "No data available",
+    "confirmDelete": "Are you sure you want to delete?",
+    "success": "Success",
+    "error": "An error occurred",
+    "logout": "Log out",
+    "login": "Log in",
+    "register": "Register",
+    "welcome": "Welcome back"
+  },
+  "nav": {
+    "dashboard": "Home",
+    "growth": "Growth Records",
+    "visits": "Visit Records",
+    "injections": "Injection Log",
+    "labs": "Lab Reports",
+    "education": "Education",
+    "settings": "Settings",
+    "patients": "Patients",
+    "profile": "Profile"
+  },
+  "auth": {
+    "loginTitle": "Sign in to PediHealth",
+    "loginSubtitle": "Pediatric Endocrinology Care Portal",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "selectRole": "Select role",
+    "parent": "Parent",
+    "doctor": "Doctor",
+    "parentDesc": "View your child's visit records and growth status",
+    "doctorDesc": "Manage patient data and visit records"
+  },
+  "dashboard": {
+    "title": "Care Dashboard",
+    "selectChild": "Select child",
+    "nextVisit": "Next visit",
+    "daysLeft": "{days} days left",
+    "today": "Today's tasks",
+    "recentLabs": "Recent labs",
+    "noChildren": "No children added yet",
+    "addChild": "Add child",
+    "quickActions": "Quick actions",
+    "recordInjection": "Record injection",
+    "viewGrowth": "View growth chart"
+  },
+  "growth": {
+    "title": "Growth Records",
+    "curve": "Growth Curve",
+    "height": "Height",
+    "weight": "Weight",
+    "bmi": "BMI",
+    "boneAge": "Bone Age",
+    "actualAge": "Actual Age",
+    "predictedHeight": "Predicted Adult Height",
+    "percentile": "Percentile",
+    "growthVelocity": "Growth Velocity",
+    "measurements": "Measurements",
+    "chartTitle": "Growth Curve for {name}",
+    "unit": {
+      "cm": "cm",
+      "kg": "kg",
+      "cmPerYear": "cm/year"
+    }
+  },
+  "visits": {
+    "title": "Visit Records",
+    "visitDate": "Visit date",
+    "doctor": "Doctor",
+    "type": "Visit type",
+    "initial": "Initial",
+    "followUp": "Follow-up",
+    "emergency": "Emergency",
+    "notes": "Doctor's notes",
+    "prescription": "Prescription",
+    "nextVisit": "Next visit date",
+    "noVisits": "No visit records yet"
+  },
+  "injection": {
+    "title": "Injection Log",
+    "logTitle": "Log Injection",
+    "date": "Injection date",
+    "time": "Injection time",
+    "dose": "Dose",
+    "site": "Injection site",
+    "painLevel": "Pain level",
+    "sideEffects": "Side effects",
+    "compliance": "Monthly compliance",
+    "missed": "Missed",
+    "completed": "Completed",
+    "sites": {
+      "leftArm": "Left arm",
+      "rightArm": "Right arm",
+      "leftThigh": "Left thigh",
+      "rightThigh": "Right thigh",
+      "leftAbdomen": "Left abdomen",
+      "rightAbdomen": "Right abdomen",
+      "leftButtock": "Left buttock",
+      "rightButtock": "Right buttock"
+    },
+    "siteRotation": "Injection site rotation"
+  },
+  "labs": {
+    "title": "Lab Reports",
+    "reportDate": "Report date",
+    "category": "Category",
+    "abnormal": "Abnormal",
+    "normal": "Normal",
+    "trend": "Trend chart",
+    "categories": {
+      "hormone": "Hormone",
+      "metabolic": "Metabolic",
+      "thyroid": "Thyroid",
+      "lipid": "Lipid",
+      "liver": "Liver function",
+      "cbc": "CBC"
+    }
+  },
+  "education": {
+    "title": "Education",
+    "categories": {
+      "precociousPuberty": "Precocious Puberty",
+      "growthDelay": "Growth Delay",
+      "ghTherapy": "Growth Hormone Therapy",
+      "obesity": "Childhood Obesity"
+    }
+  },
+  "child": {
+    "name": "Name",
+    "dateOfBirth": "Date of birth",
+    "sex": "Sex",
+    "male": "Male",
+    "female": "Female",
+    "age": "Age",
+    "diagnosis": "Diagnosis",
+    "bloodType": "Blood type",
+    "parentHeight": "Parental height",
+    "fatherHeight": "Father's height",
+    "motherHeight": "Mother's height",
+    "targetHeight": "Target height",
+    "birthHistory": "Birth history",
+    "gestationalAge": "Gestational age",
+    "birthWeight": "Birth weight",
+    "birthLength": "Birth length"
+  },
+  "doctor": {
+    "dashboard": "Doctor Dashboard",
+    "todayClinic": "Today's clinic",
+    "totalPatients": "Total patients",
+    "recentVisits": "Recent visits",
+    "addVisitRecord": "Add visit record",
+    "patientDetail": "Patient details"
+  }
+}
