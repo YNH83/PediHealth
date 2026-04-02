@@ -17,12 +17,14 @@ import {
   Sparkles,
 } from "lucide-react";
 import {
-  BearNurse,
-  GiraffeRuler,
-  CatDoctor,
-  BraveBunny,
-  OwlScientist,
-} from "@/components/illustrations/page-mascots";
+  LottieBear,
+  LottieGiraffe,
+  LottieCat,
+  LottieBunny,
+  LottieOwl,
+  LottieDoctor,
+  LottieHeartbeat,
+} from "@/components/illustrations/lottie-mascots";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +35,7 @@ const features = [
     iconColor: "text-sky",
     title: "生長曲線追蹤",
     desc: "台灣衛福部標準 P3~P97 百分位，清楚掌握孩子的成長軌跡",
-    Mascot: GiraffeRuler,
+    lottie: "giraffe" as const,
   },
   {
     icon: Stethoscope,
@@ -41,7 +43,7 @@ const features = [
     iconColor: "text-lavender",
     title: "看診紀錄管理",
     desc: "每次回診自動彙整，醫師備註、處方、下次回診一目瞭然",
-    Mascot: CatDoctor,
+    lottie: "cat" as const,
   },
   {
     icon: Syringe,
@@ -49,7 +51,7 @@ const features = [
     iconColor: "text-primary",
     title: "注射日誌",
     desc: "生長激素注射追蹤，部位輪替提醒，合規性統計",
-    Mascot: BraveBunny,
+    lottie: "bunny" as const,
   },
   {
     icon: FlaskConical,
@@ -57,7 +59,7 @@ const features = [
     iconColor: "text-mint",
     title: "檢驗報告",
     desc: "荷爾蒙、代謝、甲狀腺數據視覺化，異常值即時標示",
-    Mascot: OwlScientist,
+    lottie: "owl" as const,
   },
 ];
 
@@ -222,22 +224,16 @@ export function LandingScrollSections() {
             </div>
           </div>
 
-          {/* Mascot cluster */}
+          {/* Lottie mascot cluster */}
           <motion.div
-            className="relative h-40 w-80"
+            className="flex items-end justify-center gap-2"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <div className="absolute left-0 top-0">
-              <BearNurse className="h-28 w-28" />
-            </div>
-            <div className="absolute left-1/2 top-2 -translate-x-1/2">
-              <GiraffeRuler className="h-36 w-28" />
-            </div>
-            <div className="absolute right-0 top-0">
-              <CatDoctor className="h-28 w-28" />
-            </div>
+            <LottieBear size={120} />
+            <LottieGiraffe size={140} />
+            <LottieCat size={120} />
           </motion.div>
 
           <motion.div
@@ -368,7 +364,10 @@ export function LandingScrollSections() {
                   </p>
                 </div>
                 <div className="feature-mascot hidden sm:block">
-                  <f.Mascot className="h-32 w-32" />
+                  {f.lottie === "giraffe" && <LottieGiraffe size={140} />}
+                  {f.lottie === "cat" && <LottieCat size={140} />}
+                  {f.lottie === "bunny" && <LottieBunny size={140} />}
+                  {f.lottie === "owl" && <LottieOwl size={140} />}
                 </div>
               </div>
             ))}
@@ -379,6 +378,9 @@ export function LandingScrollSections() {
       {/* ── Section 4: Trust / Security ────────── */}
       <section ref={trustRef} className="bg-white py-20 px-4">
         <div className="mx-auto max-w-4xl">
+          <div className="mx-auto mb-2 flex justify-center">
+            <LottieHeartbeat size={60} />
+          </div>
           <h2 className="mb-4 text-center font-heading text-2xl font-bold text-foreground sm:text-3xl">
             <ShieldCheck className="mr-2 inline-block h-7 w-7 text-mint" />
             安全與隱私，我們最在意
@@ -449,7 +451,9 @@ export function LandingScrollSections() {
         </div>
 
         <div className="cta-content relative mx-auto max-w-lg text-center">
-          <BearNurse className="mx-auto mb-4 h-24 w-24" />
+          <div className="mx-auto mb-4 flex justify-center">
+            <LottieDoctor size={140} />
+          </div>
           <h2 className="mb-3 font-heading text-2xl font-bold text-foreground sm:text-3xl">
             準備好開始了嗎？
           </h2>
