@@ -28,33 +28,48 @@ export function ScrollFrameIntro({ onComplete }: { onComplete: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [loaded, setLoaded] = useState(false);
+  const [loadProgress, setLoadProgress] = useState(0);
   const [progress, setProgress] = useState(0);
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
-  // Preload all frames
+  // Preload all frames with progress tracking
   useEffect(() => {
-    const images: HTMLImageElement[] = [];
-    let loadedCount = 0;
+    let cancelled = false;
+    const images: HTMLImageElement[] = new Array(FRAME_COUNT);
+    const counter = { value: 0 };
+
+    function onFrameDone() {
+      counter.value++;
+      if (!cancelled) {
+        setLoadProgress(Math.round((counter.value / FRAME_COUNT) * 100));
+      }
+      if (counter.value >= FRAME_COUNT && !cancelled) {
+        imagesRef.current = images;
+        setLoaded(true);
+      }
+    }
 
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = onFrameDone;
+      img.onerror = onFrameDone;
       img.src = getFramePath(i);
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === FRAME_COUNT) {
-          imagesRef.current = images;
-          setLoaded(true);
-        }
-      };
-      img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === FRAME_COUNT) {
-          imagesRef.current = images;
-          setLoaded(true);
-        }
-      };
-      images.push(img);
+      images[i] = img;
     }
+
+    // Safety timeout: if loading takes too long, proceed anyway
+    const timeout = setTimeout(() => {
+      if (!cancelled && counter.value > 0) {
+        imagesRef.current = images;
+        setLoaded(true);
+      }
+    }, 15000);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
   }, []);
 
   // Setup ScrollTrigger once images are loaded
@@ -213,7 +228,13 @@ export function ScrollFrameIntro({ onComplete }: { onComplete: () => void }) {
           >
             <Heart className="h-10 w-10 text-primary" fill="currentColor" />
           </motion.div>
-          <p className="mt-3 text-sm text-muted-foreground">載入森林場景...</p>
+          <p className="mt-3 text-sm text-muted-foreground">載入森林場景... {loadProgress}%</p>
+          <div className="mt-2 h-1.5 w-48 overflow-hidden rounded-full bg-white/40">
+            <div
+              className="h-full rounded-full bg-primary/60 transition-all duration-300"
+              style={{ width: `${loadProgress}%` }}
+            />
+          </div>
         </div>
       )}
     </div>
