@@ -4,6 +4,18 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
+  // Demo mode: skip auth entirely when ?demo=true
+  const isDemo = request.nextUrl.searchParams.get("demo") === "true";
+  if (isDemo) {
+    // Set a demo cookie so subsequent navigations stay in demo mode
+    supabaseResponse.cookies.set("pedihealth-demo", "true", { path: "/" });
+    return supabaseResponse;
+  }
+  const hasDemoCookie = request.cookies.get("pedihealth-demo")?.value === "true";
+  if (hasDemoCookie) {
+    return supabaseResponse;
+  }
+
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

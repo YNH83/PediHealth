@@ -91,7 +91,7 @@ export function LoginForm({
                   variant="outline"
                   type="button"
                   className="h-auto py-3 border-primary/20 hover:bg-primary/10 hover:border-primary/40"
-                  onClick={() => router.push("/dashboard")}
+                  onClick={() => router.push("/dashboard?demo=true")}
                 >
                   <span className="mr-2 text-lg">👨‍👩‍👧</span> 家長端
                 </Button>
@@ -99,7 +99,7 @@ export function LoginForm({
                   variant="outline"
                   type="button"
                   className="h-auto py-3 border-sky/20 hover:bg-sky/10 hover:border-sky/40"
-                  onClick={() => router.push("/doctor/dashboard")}
+                  onClick={() => router.push("/doctor/dashboard?demo=true")}
                 >
                   <span className="mr-2 text-lg">🩺</span> 醫師端
                 </Button>

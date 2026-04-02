@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import {
   LayoutDashboard,
@@ -28,7 +28,13 @@ const navItems = [
 
 export function ParentSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const t = useTranslations("nav");
+
+  function handleLogout() {
+    document.cookie = "pedihealth-demo=; path=/; max-age=0";
+    router.push("/login");
+  }
 
   return (
     <aside className="flex h-full w-64 flex-col border-r border-border/50 bg-sidebar">
@@ -72,9 +78,12 @@ export function ParentSidebar() {
 
       {/* Logout */}
       <div className="border-t border-border/50 p-3">
-        <button className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive">
+        <button
+          onClick={handleLogout}
+          className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
+        >
           <LogOut className="h-5 w-5" />
-          <span>{t("profile")}</span>
+          <span>登出</span>
         </button>
       </div>
     </aside>
