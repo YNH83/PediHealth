@@ -1,3 +1,6 @@
+"use client"
+
+import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -10,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
 import { Heart } from "lucide-react"
 import Link from "next/link"
 
@@ -17,6 +21,8 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const router = useRouter()
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="shadow-lg">
@@ -28,15 +34,35 @@ export function LoginForm({
           <CardDescription>兒童內分泌照護入口</CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col gap-4">
-            {/* Role buttons */}
-            <div className="grid grid-cols-2 gap-3">
-              <Button variant="outline" type="button" className="h-auto py-3">
-                <span className="mr-2 text-lg">👨‍👩‍👧</span> 家長登入
-              </Button>
-              <Button variant="outline" type="button" className="h-auto py-3">
-                <span className="mr-2 text-lg">🩺</span> 醫師登入
-              </Button>
+          <div className="flex flex-col gap-4">
+            {/* Demo Quick Access */}
+            <div className="rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 p-4">
+              <div className="mb-2 flex items-center justify-center gap-2">
+                <Badge className="rounded-full bg-primary/20 text-primary text-xs">
+                  DEMO 模式
+                </Badge>
+              </div>
+              <p className="mb-3 text-center text-xs text-muted-foreground">
+                無需帳號，直接體驗完整功能
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <Button
+                  variant="outline"
+                  type="button"
+                  className="h-auto py-3 border-primary/20 hover:bg-primary/10 hover:border-primary/40"
+                  onClick={() => router.push("/dashboard")}
+                >
+                  <span className="mr-2 text-lg">👨‍👩‍👧</span> 家長端
+                </Button>
+                <Button
+                  variant="outline"
+                  type="button"
+                  className="h-auto py-3 border-sky/20 hover:bg-sky/10 hover:border-sky/40"
+                  onClick={() => router.push("/doctor/dashboard")}
+                >
+                  <span className="mr-2 text-lg">🩺</span> 醫師端
+                </Button>
+              </div>
             </div>
 
             <div className="relative">
@@ -50,28 +76,30 @@ export function LoginForm({
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="email">電子信箱</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">密碼</Label>
-                <a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
-                  忘記密碼？
-                </a>
+            <form className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="email">電子信箱</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
               </div>
-              <Input id="password" type="password" required />
-            </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center">
+                  <Label htmlFor="password">密碼</Label>
+                  <a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
+                    忘記密碼？
+                  </a>
+                </div>
+                <Input id="password" type="password" required />
+              </div>
 
-            <Button type="submit" className="w-full">
-              登入
-            </Button>
+              <Button type="submit" className="w-full">
+                登入
+              </Button>
+            </form>
 
             <p className="text-center text-sm text-muted-foreground">
               還沒有帳號？{" "}
@@ -79,7 +107,7 @@ export function LoginForm({
                 立即註冊
               </Link>
             </p>
-          </form>
+          </div>
         </CardContent>
       </Card>
     </div>
