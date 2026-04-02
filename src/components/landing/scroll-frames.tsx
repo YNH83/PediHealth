@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 // ── Config ──────────────────────────────────────────
 // Frame images should be placed in /public/images/frames/
 // Named: frame-001.webp, frame-002.webp, ... frame-NNN.webp
-const FRAME_COUNT = 30;
+const FRAME_COUNT = 64;
 const FRAME_PATH = "/images/frames/frame-";
 const FRAME_EXT = ".webp";
 
