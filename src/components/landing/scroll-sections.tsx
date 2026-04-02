@@ -17,14 +17,12 @@ import {
   Sparkles,
 } from "lucide-react";
 import {
-  LottieBear,
-  LottieGiraffe,
-  LottieCat,
-  LottieBunny,
-  LottieOwl,
-  LottieDoctor,
-  LottieHeartbeat,
-} from "@/components/illustrations/lottie-mascots";
+  GhibliBear,
+  GhibliGiraffe,
+  GhibliCat,
+  GhibliBunny,
+  GhibliOwl,
+} from "@/components/illustrations/ghibli-mascots";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -224,16 +222,16 @@ export function LandingScrollSections() {
             </div>
           </div>
 
-          {/* Lottie mascot cluster */}
+          {/* Ghibli mascot cluster */}
           <motion.div
-            className="flex items-end justify-center gap-2"
+            className="flex items-end justify-center gap-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <LottieBear size={120} />
-            <LottieGiraffe size={140} />
-            <LottieCat size={120} />
+            <GhibliBear className="h-32 w-32 sm:h-40 sm:w-40" />
+            <GhibliGiraffe className="h-40 w-32 sm:h-48 sm:w-36" />
+            <GhibliCat className="h-32 w-32 sm:h-40 sm:w-40" />
           </motion.div>
 
           <motion.div
@@ -364,10 +362,10 @@ export function LandingScrollSections() {
                   </p>
                 </div>
                 <div className="feature-mascot hidden sm:block">
-                  {f.lottie === "giraffe" && <LottieGiraffe size={140} />}
-                  {f.lottie === "cat" && <LottieCat size={140} />}
-                  {f.lottie === "bunny" && <LottieBunny size={140} />}
-                  {f.lottie === "owl" && <LottieOwl size={140} />}
+                  {f.lottie === "giraffe" && <GhibliGiraffe className="h-40 w-32" />}
+                  {f.lottie === "cat" && <GhibliCat className="h-36 w-36" />}
+                  {f.lottie === "bunny" && <GhibliBunny className="h-38 w-36" />}
+                  {f.lottie === "owl" && <GhibliOwl className="h-36 w-36" />}
                 </div>
               </div>
             ))}
@@ -379,7 +377,7 @@ export function LandingScrollSections() {
       <section ref={trustRef} className="bg-white py-20 px-4">
         <div className="mx-auto max-w-4xl">
           <div className="mx-auto mb-2 flex justify-center">
-            <LottieHeartbeat size={60} />
+            <GhibliOwl className="h-16 w-16" />
           </div>
           <h2 className="mb-4 text-center font-heading text-2xl font-bold text-foreground sm:text-3xl">
             <ShieldCheck className="mr-2 inline-block h-7 w-7 text-mint" />
@@ -451,9 +449,7 @@ export function LandingScrollSections() {
         </div>
 
         <div className="cta-content relative mx-auto max-w-lg text-center">
-          <div className="mx-auto mb-4 flex justify-center">
-            <LottieDoctor size={140} />
-          </div>
+          <GhibliBear className="mx-auto mb-4 h-32 w-32" />
           <h2 className="mb-3 font-heading text-2xl font-bold text-foreground sm:text-3xl">
             準備好開始了嗎？
           </h2>
