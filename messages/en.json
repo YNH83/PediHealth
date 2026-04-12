@@ -27,7 +27,8 @@
     "education": "Education",
     "settings": "Settings",
     "patients": "Patients",
-    "profile": "Profile"
+    "profile": "Profile",
+    "prediction": "Growth Prediction"
   },
   "auth": {
     "loginTitle": "Sign in to PediHealth",
@@ -157,6 +158,37 @@
     "gestationalAge": "Gestational age",
     "birthWeight": "Birth weight",
     "birthLength": "Birth length"
+  },
+  "prediction": {
+    "title": "Growth Prediction Model",
+    "subtitle": "Predict adult height based on bone age, growth velocity, and genetic factors",
+    "predictedHeight": "Predicted Adult Height",
+    "targetHeight": "Genetic Target Height",
+    "currentHeight": "Current Height",
+    "currentPercentile": "Current Percentile",
+    "boneAge": "Bone Age",
+    "actualAge": "Actual Age",
+    "boneAgeDelay": "Bone Age Delay",
+    "growthVelocity": "Growth Velocity",
+    "years": "years",
+    "predictionTrend": "Prediction Trend",
+    "predictionTrendDesc": "How predicted adult height has changed over time",
+    "factorAnalysis": "Factor Analysis",
+    "geneticFactor": "Genetic Factor",
+    "fatherHeight": "Father's Height",
+    "motherHeight": "Mother's Height",
+    "midParentalHeight": "Mid-Parental Height",
+    "growthPotential": "Growth Potential",
+    "remainingGrowth": "Remaining Growth",
+    "heightGap": "Gap to Target",
+    "onTrack": "On Track",
+    "progressGood": "Predicted height meets or exceeds genetic target",
+    "progressModerate": "Predicted height is slightly below genetic target, monitoring",
+    "progressBehind": "Predicted height is below genetic target, discuss with doctor",
+    "cm": "cm",
+    "cmPerYear": "cm/year",
+    "noData": "Not enough data for prediction",
+    "disclaimer": "This prediction is for reference only. Actual adult height is influenced by many factors. Please consult your doctor for evaluation."
   },
   "doctor": {
     "dashboard": "Doctor Dashboard",

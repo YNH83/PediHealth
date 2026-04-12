@@ -224,6 +224,84 @@ export function BraveBunny({ className = "" }: { className?: string }) {
   );
 }
 
+// Prediction page: Owl with crystal ball
+export function PredictionOwl({ className = "" }: { className?: string }) {
+  return (
+    <motion.svg
+      viewBox="0 0 120 140"
+      className={`${className}`}
+      {...float}
+    >
+      <ellipse cx="60" cy="135" rx="28" ry="5" fill="rgba(0,0,0,0.06)" />
+      {/* Body */}
+      <ellipse cx="60" cy="105" rx="26" ry="28" fill="#C4956A" />
+      <ellipse cx="60" cy="110" rx="18" ry="18" fill="#F5E6D3" />
+      {/* Wings */}
+      <ellipse cx="30" cy="100" rx="12" ry="22" fill="#A0845C" />
+      <ellipse cx="90" cy="100" rx="12" ry="22" fill="#A0845C" />
+      {/* Head */}
+      <circle cx="60" cy="55" r="26" fill="#C4956A" />
+      <circle cx="60" cy="58" r="20" fill="#D4A87A" />
+      {/* Ear tufts */}
+      <polygon points="38,35 42,18 48,38" fill="#A0845C" />
+      <polygon points="82,35 78,18 72,38" fill="#A0845C" />
+      {/* Eye circles */}
+      <circle cx="48" cy="55" r="10" fill="white" />
+      <circle cx="72" cy="55" r="10" fill="white" />
+      {/* Eyes */}
+      <circle cx="48" cy="55" r="6" fill="#6B3FA0" />
+      <circle cx="72" cy="55" r="6" fill="#6B3FA0" />
+      <circle cx="50" cy="53" r="2.5" fill="white" />
+      <circle cx="74" cy="53" r="2.5" fill="white" />
+      {/* Wizard hat */}
+      <polygon points="60,5 45,35 75,35" fill="#6B3FA0" />
+      <polygon points="60,5 63,22 56,22" fill="#8B5FD0" />
+      <ellipse cx="60" cy="35" rx="18" ry="4" fill="#6B3FA0" />
+      {/* Star on hat */}
+      <motion.g
+        animate={{ opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+      >
+        <polygon
+          points="60,14 61.5,18 65.5,18.5 62.5,21 63.5,25 60,22.5 56.5,25 57.5,21 54.5,18.5 58.5,18"
+          fill="#FFD93D"
+        />
+      </motion.g>
+      {/* Beak */}
+      <polygon points="57,65 60,70 63,65" fill="#E8C76A" />
+      {/* Crystal ball */}
+      <motion.g
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        style={{ transformOrigin: "30px 118px" }}
+      >
+        <circle cx="30" cy="118" r="10" fill="#D4A5FF" opacity="0.3" />
+        <circle cx="30" cy="118" r="8" fill="#D4A5FF" opacity="0.2" />
+        <circle cx="30" cy="118" r="10" fill="none" stroke="#D4A5FF" strokeWidth="1.5" />
+        <circle cx="27" cy="115" r="2" fill="white" opacity="0.5" />
+      </motion.g>
+      {/* Stand for crystal ball */}
+      <path d="M 23 127 Q 30 130 37 127" stroke="#A0845C" fill="none" strokeWidth="2" strokeLinecap="round" />
+      {/* Feet */}
+      <ellipse cx="50" cy="130" rx="8" ry="4" fill="#E8C76A" />
+      <ellipse cx="70" cy="130" rx="8" ry="4" fill="#E8C76A" />
+      {/* Sparkles */}
+      <motion.g
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+      >
+        <text x="88" y="75" fontSize="8">✨</text>
+      </motion.g>
+      <motion.g
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
+      >
+        <text x="20" y="55" fontSize="7">🔮</text>
+      </motion.g>
+    </motion.svg>
+  );
+}
+
 // Labs page: Owl scientist
 export function OwlScientist({ className = "" }: { className?: string }) {
   return (

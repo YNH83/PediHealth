@@ -28,6 +28,7 @@ import {
   BookOpen,
   Settings,
   Users,
+  Brain,
 } from "lucide-react"
 
 function SidebarLogo() {
@@ -47,6 +48,7 @@ function SidebarLogo() {
 const parentNav = [
   { href: "/dashboard", icon: LayoutDashboard, labelKey: "dashboard" },
   { href: "/growth", icon: TrendingUp, labelKey: "growth" },
+  { href: "/prediction", icon: Brain, labelKey: "prediction" },
   { href: "/visits", icon: Stethoscope, labelKey: "visits" },
   { href: "/injections", icon: Syringe, labelKey: "injections" },
   { href: "/labs", icon: FlaskConical, labelKey: "labs" },

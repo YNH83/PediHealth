@@ -12,6 +12,7 @@ import {
   Plus,
   Stethoscope,
   BookOpen,
+  Brain,
 } from "lucide-react";
 import { WaveDivider } from "@/components/layout/wave-divider";
 import { BearNurse } from "@/components/illustrations/page-mascots";
@@ -269,13 +270,13 @@ export default function ParentDashboard() {
               <span className="text-xs font-medium">檢驗報告</span>
             </Button>
           </Link>
-          <Link href="/visits">
+          <Link href="/prediction">
             <Button
               variant="outline"
               className="h-auto w-full flex-col gap-2 rounded-2xl border-2 border-border/50 bg-white py-6 shadow-sm hover:border-lavender hover:bg-lavender/10"
             >
-              <Stethoscope className="h-6 w-6 text-lavender" />
-              <span className="text-xs font-medium">看診紀錄</span>
+              <Brain className="h-6 w-6 text-lavender" />
+              <span className="text-xs font-medium">生長預測</span>
             </Button>
           </Link>
         </div>

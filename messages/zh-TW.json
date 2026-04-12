@@ -27,7 +27,8 @@
     "education": "衛教專區",
     "settings": "設定",
     "patients": "患者列表",
-    "profile": "個人資料"
+    "profile": "個人資料",
+    "prediction": "生長預測"
   },
   "auth": {
     "loginTitle": "登入 PediHealth",
@@ -157,6 +158,37 @@
     "gestationalAge": "出生週數",
     "birthWeight": "出生體重",
     "birthLength": "出生身長"
+  },
+  "prediction": {
+    "title": "生長預測模型",
+    "subtitle": "根據骨齡、生長速率與遺傳因子預測成人身高",
+    "predictedHeight": "預測成人身高",
+    "targetHeight": "遺傳目標身高",
+    "currentHeight": "目前身高",
+    "currentPercentile": "目前百分位",
+    "boneAge": "骨齡",
+    "actualAge": "實際年齡",
+    "boneAgeDelay": "骨齡落後",
+    "growthVelocity": "生長速率",
+    "years": "年",
+    "predictionTrend": "預測趨勢",
+    "predictionTrendDesc": "預測成人身高隨時間的變化",
+    "factorAnalysis": "影響因子分析",
+    "geneticFactor": "遺傳因子",
+    "fatherHeight": "父親身高",
+    "motherHeight": "母親身高",
+    "midParentalHeight": "中親身高",
+    "growthPotential": "生長潛力",
+    "remainingGrowth": "剩餘成長空間",
+    "heightGap": "與目標差距",
+    "onTrack": "達標進度",
+    "progressGood": "預測身高已接近或超過遺傳目標",
+    "progressModerate": "預測身高略低於遺傳目標，持續追蹤中",
+    "progressBehind": "預測身高低於遺傳目標，建議與醫師討論",
+    "cm": "公分",
+    "cmPerYear": "公分/年",
+    "noData": "尚無足夠資料進行預測",
+    "disclaimer": "此預測僅供參考，實際成人身高受多種因素影響，請以醫師評估為準。"
   },
   "doctor": {
     "dashboard": "醫師工作台",
